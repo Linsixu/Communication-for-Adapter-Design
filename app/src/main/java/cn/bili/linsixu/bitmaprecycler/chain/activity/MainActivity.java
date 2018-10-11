@@ -11,6 +11,7 @@ import cn.bili.linsixu.bitmaprecycler.R;
 import cn.bili.linsixu.bitmaprecycler.chain.AbsPlayerAdapter;
 import cn.bili.linsixu.bitmaprecycler.chain.BuildChainPresenter;
 import cn.bili.linsixu.bitmaprecycler.chain.event.MyEvent;
+import cn.bili.linsixu.bitmaprecycler.chain.utils.MyEventFeature;
 import cn.bili.linsixu.bitmaprecycler.databinding.ActivityMainBinding;
 
 public class MainActivity extends BaseActivity<ActivityMainBinding> {
@@ -25,7 +26,9 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
 
     @Override
     void initData() {
-        root = presenter.getRootChain();
+        root = presenter.getRootChain(true);
+
+        presenter.addDisFeature(MyEventFeature.CONTROLLER_SETTING);//添加需要从默认链表中移除的adapter
     }
 
     @Override
