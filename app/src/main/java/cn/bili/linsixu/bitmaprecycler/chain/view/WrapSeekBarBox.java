@@ -57,7 +57,7 @@ public class WrapSeekBarBox extends ViewGroup {
         }
         int resultW = (widthM == MeasureSpec.EXACTLY)? widthP : width;
         int resultH = (heightM == MeasureSpec.EXACTLY)?heightP : height;
-        setMeasuredDimension(resultW,resultH);
+        setMeasuredDimension(resultW,resultH);//告诉外层布局自己的大小
     }
 
     @Override
