@@ -56,6 +56,16 @@ public class AbsPlayerAdapter<T extends AbsPlayerAdapter> implements IEventCente
     }
 
     /**
+     * 注销监听
+     * @param receiver
+     */
+    public void unregisterEvent(EventCenter.Receiver receiver){
+        if(mCenter != null){
+            mCenter.unregister(receiver);
+        }
+    }
+
+    /**
      * 设置每个Adapter接受消息回调的接口
      * @param iEventCenter
      */
