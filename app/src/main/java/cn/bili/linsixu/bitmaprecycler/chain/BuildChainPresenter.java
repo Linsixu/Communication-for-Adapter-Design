@@ -39,7 +39,7 @@ public class BuildChainPresenter {
      * @return
      */
     private PlayerAdapterFactory.AdapterChainBuilder buildDefaultChain(boolean isDefault){
-        if(isDefault){
+        if(!isDefault){
             if(disableFeature.size() > 0){
                 for(Feature feature:MyEventFeature.DEFAULT_FEATURE){
                     if(!disableFeature.contains(feature.getmName())){ //如果有需要移除监听的adapter，就不添加到链表中
