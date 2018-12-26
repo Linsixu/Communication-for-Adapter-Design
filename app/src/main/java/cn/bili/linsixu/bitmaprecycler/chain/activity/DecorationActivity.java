@@ -1,6 +1,7 @@
 package cn.bili.linsixu.bitmaprecycler.chain.activity;
 
-import android.support.v7.widget.LinearLayoutManager;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import java.util.ArrayList;
@@ -17,6 +18,7 @@ import cn.bili.linsixu.bitmaprecycler.databinding.ActivityRecyclerBinding;
 public class DecorationActivity extends BaseActivity<ActivityRecyclerBinding> {
     private ArrayList<String> mDatas =new ArrayList<>();
     private MyRecyclerAdapter adapter = null;
+    private ImageView imageView;
     @Override
     int getLayoutId() {
         return R.layout.activity_recycler;
@@ -24,18 +26,25 @@ public class DecorationActivity extends BaseActivity<ActivityRecyclerBinding> {
 
     @Override
     void initData() {
-        generateDatas();
-        adapter = new MyRecyclerAdapter(mDatas,this);
-        binding.linearRecyclerView.setAdapter(adapter);
-        binding.linearRecyclerView.addItemDecoration(new LinearItemDecoration(this));
-        LinearLayoutManager manager = new LinearLayoutManager(this);
-        manager.setOrientation(LinearLayoutManager.VERTICAL);
-        binding.linearRecyclerView.setLayoutManager(manager);
+//        generateDatas();
+//        adapter = new MyRecyclerAdapter(mDatas,this);
+//        binding.linearRecyclerView.setAdapter(adapter);
+//        binding.linearRecyclerView.addItemDecoration(new LinearItemDecoration(this));
+//        LinearLayoutManager manager = new LinearLayoutManager(this);
+//        manager.setOrientation(LinearLayoutManager.VERTICAL);
+//        binding.linearRecyclerView.setLayoutManager(manager);
     }
 
     @Override
     void initClick() {
-
+//        binding.linearRecyclerView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                ARouter.getInstance()
+//                        .build("/module/MainActivity")
+//                        .navigation();
+//            }
+//        });
     }
 
     private void generateDatas(){

@@ -1,15 +1,14 @@
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
+apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
+
     defaultConfig {
-        buildConfigField("boolean","Debug","true")
-        applicationId "cn.bili.linsixu.bitmaprecycler"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         javaCompileOptions {
@@ -21,9 +20,9 @@ android {
             }
         }
     }
+
     buildTypes {
         release {
-            buildConfigField("boolean","Debug","false")
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
@@ -31,28 +30,22 @@ android {
     dataBinding {
         enabled true
     }
+
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    testImplementation 'junit:junit:4.12'
-//    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    //noinspection GradleCompatible
-    //noinspection GradleCompatiblesadsads
-//    implementation project(':common')
-
     implementation rootProject.ext.support["appcompat"]
-    implementation rootProject.ext.support["recyclerview"]
-    implementation rootProject.ext.support["constraintlayout"]
+    implementation rootProject.ext.support["core"]
 
     api rootProject.ext.third["arouter_api"]
     annotationProcessor rootProject.ext.third["arouter_compiler"]
 
-    //如果需要router调整另外一个模块的界面，需要依赖对应module
-    implementation project(':module_main')
+//    testImplementation 'junit:junit:4.12'
+//    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+////    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+//    api 'com.alibaba:arouter-api:1.4.0'
+//    annotationProcessor rootProject.ext.third["arouter_compiler"]
+}
 
-}
-repositories {
-    mavenCentral()
-}
+
