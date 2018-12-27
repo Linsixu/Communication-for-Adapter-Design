@@ -9,6 +9,7 @@ import java.util.Random;
 import cn.bili.linsixu.bitmaprecycler.R;
 import cn.bili.linsixu.bitmaprecycler.chain.view.WaterfallLayout;
 import cn.bili.linsixu.bitmaprecycler.databinding.ActivityWaterBinding;
+import cn.bili.linsixu.commen_base.base.BaseActivity;
 
 
 /**
@@ -18,17 +19,17 @@ import cn.bili.linsixu.bitmaprecycler.databinding.ActivityWaterBinding;
 public class TestActivity extends BaseActivity<ActivityWaterBinding> {
     private static int IMG_COUNT = 5;
     @Override
-    int getLayoutId() {
+    protected int getLayoutId() {
         return R.layout.activity_router;
     }
 
     @Override
-    void initData() {
+    protected void initData() {
 
     }
 
     @Override
-    void initClick() {
+    protected void initClick() {
         binding.addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -10,6 +10,7 @@ import cn.bili.linsixu.bitmaprecycler.R;
 import cn.bili.linsixu.bitmaprecycler.chain.recycler.LinearItemDecoration;
 import cn.bili.linsixu.bitmaprecycler.chain.recycler.MyRecyclerAdapter;
 import cn.bili.linsixu.bitmaprecycler.databinding.ActivityRecyclerBinding;
+import cn.bili.linsixu.commen_base.base.BaseActivity;
 
 /**
  * Created by Magic
@@ -20,12 +21,12 @@ public class DecorationActivity extends BaseActivity<ActivityRecyclerBinding> {
     private MyRecyclerAdapter adapter = null;
     private ImageView imageView;
     @Override
-    int getLayoutId() {
+    protected int getLayoutId() {
         return R.layout.activity_recycler;
     }
 
     @Override
-    void initData() {
+    protected void initData() {
 //        generateDatas();
 //        adapter = new MyRecyclerAdapter(mDatas,this);
 //        binding.linearRecyclerView.setAdapter(adapter);
@@ -36,7 +37,7 @@ public class DecorationActivity extends BaseActivity<ActivityRecyclerBinding> {
     }
 
     @Override
-    void initClick() {
+    protected void initClick() {
 //        binding.linearRecyclerView.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {

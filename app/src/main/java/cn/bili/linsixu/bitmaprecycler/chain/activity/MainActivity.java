@@ -24,6 +24,7 @@ import cn.bili.linsixu.bitmaprecycler.chain.event.MyEvent;
 import cn.bili.linsixu.bitmaprecycler.chain.utils.DensityUtil;
 import cn.bili.linsixu.bitmaprecycler.chain.utils.MyEventFeature;
 import cn.bili.linsixu.bitmaprecycler.databinding.ActivityMainBinding;
+import cn.bili.linsixu.commen_base.base.BaseActivity;
 
 @Route(path = "/app/MainActivity")
 public class MainActivity extends BaseActivity<ActivityMainBinding> {
@@ -34,12 +35,12 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
     private PopupWindow popupWindow;
 
     @Override
-    int getLayoutId() {
+    protected int getLayoutId() {
         return R.layout.activity_main;
     }
 
     @Override
-    void initData() {
+    protected void initData() {
         root = presenter.getRootChain(true);
 
         presenter.addDisFeature(MyEventFeature.CONTROLLER_SETTING);//添加需要从默认链表中移除的adapter
@@ -47,7 +48,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
     }
 
     @Override
-    void initClick() {
+    protected void initClick() {
         binding.btnDemand.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

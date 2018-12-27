@@ -51,6 +51,7 @@ dependencies {
 
     //如果需要router调整另外一个模块的界面，需要依赖对应module
     implementation project(':module_main')
+    implementation project(':common')
 
 }
 repositories {
