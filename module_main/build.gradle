@@ -1,4 +1,6 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     defaultConfig {
@@ -10,13 +12,21 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         //Arouter路由配置（每个Module都需要添加，要不然无法跳转）
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments = [ moduleName : project.getName() ]
+//        javaCompileOptions {
+//            annotationProcessorOptions {
+//                arguments = [ moduleName : project.getName() ]
+//            }
+//            annotationProcessorOptions {
+//                arguments = [AROUTER_MODULE_NAME: project.getName()]
+//            }
+//        }
+        //如果存在kotlin和java代码必须配置下面的代码
+        kapt {
+            arguments {
+                arg("moduleName", project.getName())
+                arg("AROUTER_MODULE_NAME",project.getName())
             }
-            annotationProcessorOptions {
-                arguments = [AROUTER_MODULE_NAME: project.getName()]
-            }
+            generateStubs = true
         }
     }
 
@@ -24,6 +34,10 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            useProguard false
         }
     }
 
@@ -39,9 +53,24 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    //Arouter路由
+    //Arouter路由，因为common模块引用了arouter_api，所以该模块不需要再引用
 //    implementation rootProject.ext.third["arouter_api"]
     implementation project(':common')
-    api rootProject.ext.third["arouter_api"]
-    annotationProcessor rootProject.ext.third["arouter_compiler"]
+    kapt rootProject.ext.third["arouter_compiler"]
+
+    //liveData 如果有kotlin代码，annotationProcessor必须用kapt代替，要不功能无法正常使用m
+    implementation rootProject.ext.support["lifecycle"]
+    kapt rootProject.ext.support["lifecycle_compile"]
+    implementation rootProject.ext.support["room"]
+    kapt rootProject.ext.support["room_compile"]
+
+    kapt "com.android.databinding:compiler:3.1.0"
+}
+
+kapt {
+    generateStubs = true
+}
+
+repositories {
+    mavenCentral()
 }

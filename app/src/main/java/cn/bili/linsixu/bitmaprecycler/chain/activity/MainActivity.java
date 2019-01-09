@@ -1,5 +1,6 @@
 package cn.bili.linsixu.bitmaprecycler.chain.activity;
 
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
@@ -21,10 +22,14 @@ import cn.bili.linsixu.bitmaprecycler.R;
 import cn.bili.linsixu.bitmaprecycler.chain.AbsPlayerAdapter;
 import cn.bili.linsixu.bitmaprecycler.chain.BuildChainPresenter;
 import cn.bili.linsixu.bitmaprecycler.chain.event.MyEvent;
+import cn.bili.linsixu.bitmaprecycler.chain.kotlin.MyTest1;
 import cn.bili.linsixu.bitmaprecycler.chain.utils.DensityUtil;
 import cn.bili.linsixu.bitmaprecycler.chain.utils.MyEventFeature;
+import cn.bili.linsixu.bitmaprecycler.chain.utils.MyLog;
 import cn.bili.linsixu.bitmaprecycler.databinding.ActivityMainBinding;
 import cn.bili.linsixu.commen_base.base.BaseActivity;
+
+import static android.content.pm.ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
 
 @Route(path = "/app/MainActivity")
 public class MainActivity extends BaseActivity<ActivityMainBinding> {
@@ -53,6 +58,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
             @Override
             public void onClick(View v) {
                 root.postEvent(MyEvent.DEMAND_URL, binding.btnDemand.getText());
+                MyTest1.Companion.print();
             }
         });
 
@@ -61,7 +67,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
             public void onClick(View v) {
 //                root.postEvent(MyEvent.CONTROLLER_URL,binding.btnController.getText());
 //                showTips(binding.btnController);
-                Uri uri = Uri.parse("/module_main/MainActivity");
+                Uri uri = Uri.parse("/module_main/LifecyclerActivity");
                 ARouter.getInstance().build(uri).
                         withString("key","6666").
                         navigation();
@@ -72,6 +78,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
             @Override
             public void onClick(View v) {
                 root.postEvent(MyEvent.RECYCLER_URL, binding.btnRecycler.getText());
+                setRequestedOrientation(SCREEN_ORIENTATION_LANDSCAPE);
             }
         });
     }
@@ -102,5 +109,11 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
 //                    location[0] + view.getWidth() / 2,
 //                    location[1] + view.getHeight());
         }
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        MyLog.i("magic","A="+newConfig.orientation);
     }
 }

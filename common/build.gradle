@@ -1,5 +1,4 @@
 apply plugin: 'com.android.library'
-
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
 
@@ -40,6 +39,11 @@ dependencies {
 
     api rootProject.ext.third["arouter_api"]
     annotationProcessor rootProject.ext.third["arouter_compiler"]
+
+    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+//    api rootProject.ext.third["butterknife"]
+//    annotationProcessor rootProject.ext.third["butterknife_compiler"]
 
 //    testImplementation 'junit:junit:4.12'
 //    androidTestImplementation 'com.android.support.test:runner:1.0.2'

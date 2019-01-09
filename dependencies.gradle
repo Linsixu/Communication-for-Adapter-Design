@@ -11,11 +11,15 @@ ext {
     targetSdkVersion = 26
     androidSupportLibraryVersion = '26.1.0'
 
+    butterknifeVersion = '8.1.0'
+
     versions = [
             arouterApiVersion       : "1.4.1",
             arouterCompilerVersion  : "1.2.2",
             arouterannotationVersion: "1.0.4",
             arouterRegisterVersion  : "1.0.2",
+            archLifecycleVersion    : "1.0.0",
+            archRoomVersion         : "1.0.0",
     ]
 
     support = [
@@ -33,7 +37,12 @@ ext {
             'exifinterface'         : "com.android.support:exifinterface:$androidSupportLibraryVersion",
             'testrunner'            : 'com.android.support.test:runner:1.0.2',
             'room'                  : "android.arch.persistence.room:runtime:1.0.0",
-            'core'                  : "com.android.support:support-core-utils:$androidSupportLibraryVersion"
+            'core'                  : "com.android.support:support-core-utils:$androidSupportLibraryVersion",
+            'lifecycle'             : "android.arch.lifecycle:extensions:${versions["archLifecycleVersion"]}",
+            'lifecycle_compile'     : "android.arch.lifecycle:compiler:${versions["archLifecycleVersion"]}",
+            'room'                  : "android.arch.persistence.room:runtime:${versions["archRoomVersion"]}",
+            'room_compile'          : "android.arch.persistence.room:compiler:${versions["archRoomVersion"]}"
+
     ]
 
     third = [
@@ -41,6 +50,8 @@ ext {
             'arouter_compiler'      : "com.alibaba:arouter-compiler:${versions["arouterCompilerVersion"]}",
             'arouter_annotation'    : "com.alibaba:arouter-annotation:${versions["arouterannotationVersion"]}",
             'arouter-register'      : "com.alibaba:arouter-register:${versions["arouterRegisterVersion"]}",
+            'butterknife'           : "com.jakewharton:butterknife:$butterknifeVersion",
+            'butterknife_compiler'  : "com.jakewharton:butterknife-compiler:$butterknifeVersion",
 
     ]
 }
