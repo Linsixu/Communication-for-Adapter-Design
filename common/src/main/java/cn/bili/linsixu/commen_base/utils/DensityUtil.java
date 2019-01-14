@@ -1,12 +1,12 @@
-package cn.bili.linsixu.bitmaprecycler.chain.utils;
+/*
+ * bilibili:android studio write this method in 19-1-14 下午4:43
+ */
+
+package cn.bili.linsixu.commen_base.utils;
 
 import android.content.Context;
 import android.util.DisplayMetrics;
 
-/**
- * Created by Magic
- * on 2018/12/10.
- */
 public class DensityUtil {
     private static int sWidthPixels;
     private static int sHeightPixels;

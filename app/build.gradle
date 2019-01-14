@@ -1,6 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-
+apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     defaultConfig {
@@ -12,13 +12,12 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments = [ moduleName : project.getName() ]
+        kapt {
+            arguments {
+                arg("moduleName", project.getName())
+                arg("AROUTER_MODULE_NAME",project.getName())
             }
-            annotationProcessorOptions {
-                arguments = [AROUTER_MODULE_NAME: project.getName()]
-            }
+            generateStubs = true
         }
     }
     buildTypes {
@@ -47,13 +46,22 @@ dependencies {
     implementation rootProject.ext.support["constraintlayout"]
 
     api rootProject.ext.third["arouter_api"]
-    annotationProcessor rootProject.ext.third["arouter_compiler"]
+    kapt rootProject.ext.third["arouter_compiler"]
+
+    api rootProject.ext.third["butterknife"]
+    kapt rootProject.ext.third["butterknife_compiler"]
 
     //如果需要router调整另外一个模块的界面，需要依赖对应module
     implementation project(':module_main')
     implementation project(':common')
 
+    kapt "com.android.databinding:compiler:3.1.0"
+
 }
+kapt {
+    generateStubs = true
+}
+
 repositories {
     mavenCentral()
 }

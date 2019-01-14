@@ -1,4 +1,6 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
 
@@ -10,13 +12,12 @@ android {
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments = [ moduleName : project.getName() ]
+        kapt {
+            arguments {
+                arg("moduleName", project.getName())
+                arg("AROUTER_MODULE_NAME",project.getName())
             }
-            annotationProcessorOptions {
-                arguments = [AROUTER_MODULE_NAME: project.getName()]
-            }
+            generateStubs = true
         }
     }
 
@@ -38,7 +39,7 @@ dependencies {
     implementation rootProject.ext.support["core"]
 
     api rootProject.ext.third["arouter_api"]
-    annotationProcessor rootProject.ext.third["arouter_compiler"]
+    kapt rootProject.ext.third["arouter_compiler"]
 
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
@@ -50,6 +51,9 @@ dependencies {
 ////    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 //    api 'com.alibaba:arouter-api:1.4.0'
 //    annotationProcessor rootProject.ext.third["arouter_compiler"]
+}
+kapt {
+    generateStubs = true
 }
 
 

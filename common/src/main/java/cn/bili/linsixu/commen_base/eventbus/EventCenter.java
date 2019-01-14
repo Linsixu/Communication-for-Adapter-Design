@@ -1,4 +1,8 @@
-package cn.bili.linsixu.bitmaprecycler.chain;
+/*
+ * bilibili:android studio write this method in 19-1-14 下午4:41
+ */
+
+package cn.bili.linsixu.commen_base.eventbus;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -7,14 +11,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-import cn.bili.linsixu.bitmaprecycler.chain.inteface.IEventCenter;
+import cn.bili.linsixu.commen_base.eventbus.inteface.IEventCenter;
 
 
 public class EventCenter implements IEventCenter {
 
 
-
-    private Map<String,List<Receiver>> mReceiverMap = Collections.synchronizedMap(new HashMap<String, List<Receiver>>());
+    private Map<String,List<IEventCenter.Receiver>> mReceiverMap = Collections.synchronizedMap(new HashMap<String, List<Receiver>>());
 
     @Override
     public void sendEvent(String event, Object... args) {

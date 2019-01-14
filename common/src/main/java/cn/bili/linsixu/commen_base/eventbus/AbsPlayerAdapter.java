@@ -1,11 +1,12 @@
-package cn.bili.linsixu.bitmaprecycler.chain;
-
-import cn.bili.linsixu.bitmaprecycler.chain.inteface.IEventCenter;
-
-/**
- * Created by Magic
- * on 2018/10/9.
+/*
+ * bilibili:android studio write this method in 19-1-14 下午4:39
  */
+
+package cn.bili.linsixu.commen_base.eventbus;
+
+
+import cn.bili.linsixu.commen_base.eventbus.inteface.IEventCenter;
+
 public class AbsPlayerAdapter<T extends AbsPlayerAdapter> implements IEventCenter.Receiver {
 
     protected T mParentAdapter;

@@ -1,21 +1,21 @@
-package cn.bili.linsixu.bitmaprecycler.chain.bean;
+/*
+ * bilibili:android studio write this method in 19-1-14 下午4:39
+ */
+
+package cn.bili.linsixu.commen_base.eventbus.bean;
 
 import java.io.Serializable;
 
-/**
- * Created by Magic
- * on 2018/10/11.
- */
 public class Feature implements Serializable {
     private Class mClass;
     private String mName;
     private boolean mEnabled;
 
-    public Feature(String mName,Class mClass) {
+    public Feature(String mName, Class mClass) {
         this(mName,mClass,true);
     }
 
-    public Feature(String mName,Class mClass,boolean mEnabled) {
+    public Feature(String mName, Class mClass, boolean mEnabled) {
         this.mClass = mClass;
         this.mName = mName;
         this.mEnabled = mEnabled;

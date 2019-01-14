@@ -1,9 +1,8 @@
 package cn.bili.linsixu.bitmaprecycler.chain.adapter;
 
-import cn.bili.linsixu.bitmaprecycler.chain.AbsPlayerAdapter;
-import cn.bili.linsixu.bitmaprecycler.chain.EventCenter;
-import cn.bili.linsixu.bitmaprecycler.chain.event.MyEvent;
 import cn.bili.linsixu.bitmaprecycler.chain.utils.MyLog;
+import cn.bili.linsixu.commen_base.eventbus.AbsPlayerAdapter;
+import cn.bili.linsixu.commen_base.eventbus.event.MyEvent;
 
 /**
  * Created by Magic
@@ -11,8 +10,6 @@ import cn.bili.linsixu.bitmaprecycler.chain.utils.MyLog;
  */
 public class ControllerAdapter extends AbsPlayerAdapter {
     private final String TAG = "ControllerAdapter";
-
-
 
     @Override
     public void onEvent(String event, Object... args) {

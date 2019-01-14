@@ -1,13 +1,15 @@
-package cn.bili.linsixu.bitmaprecycler.chain;
+/*
+ * bilibili:android studio write this method in 19-1-14 下午4:42
+ */
+
+package cn.bili.linsixu.commen_base.eventbus;
 
 import android.util.Log;
 
-import cn.bili.linsixu.bitmaprecycler.chain.inteface.IEventCenter;
+import cn.bili.linsixu.commen_base.eventbus.inteface.IEventCenter;
+import cn.bili.linsixu.commen_base.utils.MyLog;
 
-/**
- * Created by Magic
- * on 2018/10/9.
- */
+
 public class PlayerAdapterFactory {
     public static final AdapterChainBuilder mBuild = new AdapterChainBuilder();
 
@@ -39,7 +41,6 @@ public class PlayerAdapterFactory {
             adapter.startRegister();//确保了EventCenter不为空的时候才让adapter进行监听事件的注册
             return mBuild;
         }
-
         /**
          * 根据Class往双向链表中添加item
          * @param adapter 类的名字

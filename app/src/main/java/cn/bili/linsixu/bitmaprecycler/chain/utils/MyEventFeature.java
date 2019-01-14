@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import cn.bili.linsixu.bitmaprecycler.chain.adapter.ControllerAdapter;
 import cn.bili.linsixu.bitmaprecycler.chain.adapter.DemandAdapter;
 import cn.bili.linsixu.bitmaprecycler.chain.adapter.RecyclerAdapter;
-import cn.bili.linsixu.bitmaprecycler.chain.bean.Feature;
+import cn.bili.linsixu.commen_base.eventbus.bean.Feature;
 
 /**
  * 添加默认的adapter到链表中

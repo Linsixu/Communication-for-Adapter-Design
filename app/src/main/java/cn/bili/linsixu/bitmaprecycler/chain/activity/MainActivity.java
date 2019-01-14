@@ -5,9 +5,6 @@ import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.PopupWindow;
@@ -15,21 +12,19 @@ import android.widget.PopupWindow;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import cn.bili.linsixu.bitmaprecycler.R;
-import cn.bili.linsixu.bitmaprecycler.chain.AbsPlayerAdapter;
-import cn.bili.linsixu.bitmaprecycler.chain.BuildChainPresenter;
-import cn.bili.linsixu.bitmaprecycler.chain.event.MyEvent;
-import cn.bili.linsixu.bitmaprecycler.chain.kotlin.MyTest1;
-import cn.bili.linsixu.bitmaprecycler.chain.utils.DensityUtil;
+import cn.bili.linsixu.bitmaprecycler.chain.adapter.ControllerAdapter;
+import cn.bili.linsixu.bitmaprecycler.chain.adapter.DemandAdapter;
+import cn.bili.linsixu.bitmaprecycler.chain.configuration.AvPlayerConfiguration;
 import cn.bili.linsixu.bitmaprecycler.chain.utils.MyEventFeature;
 import cn.bili.linsixu.bitmaprecycler.chain.utils.MyLog;
 import cn.bili.linsixu.bitmaprecycler.databinding.ActivityMainBinding;
 import cn.bili.linsixu.commen_base.base.BaseActivity;
-
-import static android.content.pm.ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
+import cn.bili.linsixu.commen_base.eventbus.AbsPlayerAdapter;
+import cn.bili.linsixu.commen_base.eventbus.BuildChainPresenter;
+import cn.bili.linsixu.commen_base.eventbus.bean.Feature;
+import cn.bili.linsixu.commen_base.eventbus.event.MyEvent;
+import cn.bili.linsixu.commen_base.utils.DensityUtil;
 
 @Route(path = "/app/MainActivity")
 public class MainActivity extends BaseActivity<ActivityMainBinding> {
@@ -46,9 +41,18 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
 
     @Override
     protected void initData() {
+        presenter = new BuildChainPresenter(new AvPlayerConfiguration());
         root = presenter.getRootChain(true);
 
-        presenter.addDisFeature(MyEventFeature.CONTROLLER_SETTING);//添加需要从默认链表中移除的adapter
+//        for(Feature f : new AvPlayerConfiguration().getCustomFeatures()){
+//            try {
+//                presenter.addAdapter((AbsPlayerAdapter)f.getmClass().newInstance());
+//                presenter
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//        }
+//        presenter.addListAdapter();
 
     }
 
@@ -58,7 +62,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
             @Override
             public void onClick(View v) {
                 root.postEvent(MyEvent.DEMAND_URL, binding.btnDemand.getText());
-                MyTest1.Companion.print();
+//                MyTest1.Companion.print();
             }
         });
 
@@ -78,7 +82,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
             @Override
             public void onClick(View v) {
                 root.postEvent(MyEvent.RECYCLER_URL, binding.btnRecycler.getText());
-                setRequestedOrientation(SCREEN_ORIENTATION_LANDSCAPE);
+//                setRequestedOrientation(SCREEN_ORIENTATION_LANDSCAPE);
             }
         });
     }
