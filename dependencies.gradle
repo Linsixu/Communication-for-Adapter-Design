@@ -41,8 +41,7 @@ ext {
             'lifecycle'             : "android.arch.lifecycle:extensions:${versions["archLifecycleVersion"]}",
             'lifecycle_compile'     : "android.arch.lifecycle:compiler:${versions["archLifecycleVersion"]}",
             'room'                  : "android.arch.persistence.room:runtime:${versions["archRoomVersion"]}",
-            'room_compile'          : "android.arch.persistence.room:compiler:${versions["archRoomVersion"]}",
-            'kotlin_reflect'        : "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+            'room_compile'          : "android.arch.persistence.room:compiler:${versions["archRoomVersion"]}"
 
     ]
 
