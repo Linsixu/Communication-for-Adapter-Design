@@ -44,16 +44,6 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
         presenter = new BuildChainPresenter(new AvPlayerConfiguration());
         root = presenter.getRootChain(true);
 
-//        for(Feature f : new AvPlayerConfiguration().getCustomFeatures()){
-//            try {
-//                presenter.addAdapter((AbsPlayerAdapter)f.getmClass().newInstance());
-//                presenter
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//        }
-//        presenter.addListAdapter();
-
     }
 
     @Override
