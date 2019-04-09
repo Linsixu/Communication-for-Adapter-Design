@@ -14,7 +14,7 @@ import kotlin.concurrent.timer
  * Created by Magic
  * on 2019/1/8.
  */
-public class LiveDataModel : ViewModel() {
+class LiveDataModel : ViewModel() {
 
     var mElapsedTime: MutableLiveData<Long> = MutableLiveData()
 

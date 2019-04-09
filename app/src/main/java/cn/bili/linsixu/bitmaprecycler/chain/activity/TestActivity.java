@@ -20,7 +20,7 @@ public class TestActivity extends BaseActivity<ActivityWaterBinding> {
     private static int IMG_COUNT = 5;
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_router;
+        return R.layout.activity_water;
     }
 
     @Override

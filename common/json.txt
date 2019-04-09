@@ -1,0 +1,15 @@
+[{
+	"book": "看书拉",
+	"desc": "肯定崩溃",
+	"cardType": "small_cover_v1",
+	"name": "smaller",
+	"number": "321",
+	"address": "bi"
+}, {
+	"cover": "http://i2.hdslb.com/bfs/archive/0130dca5b602f1a9d503c8821827b0a99d5eefc4.jpg",
+	"feed": "天马测试1",
+	"cardType": "large_cover_v1",
+	"name": "magic'",
+	"number": "1222",
+	"address": "bilibili"
+}]
