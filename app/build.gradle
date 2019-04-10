@@ -40,16 +40,15 @@ dependencies {
     //noinspection GradleCompatible
     //noinspection GradleCompatiblesadsads
 //    implementation project(':common')
-
-    implementation rootProject.ext.support["appcompat"]
     implementation rootProject.ext.support["recyclerview"]
+    implementation rootProject.ext.support["appcompat"]
     implementation rootProject.ext.support["constraintlayout"]
 
     api rootProject.ext.third["arouter_api"]
     kapt rootProject.ext.third["arouter_compiler"]
 
-    api rootProject.ext.third["butterknife"]
-    kapt rootProject.ext.third["butterknife_compiler"]
+//    api rootProject.ext.third["butterknife"]
+//    kapt rootProject.ext.third["butterknife_compiler"]
 
     //如果需要router调整另外一个模块的界面，需要依赖对应module
     implementation project(':module_main')

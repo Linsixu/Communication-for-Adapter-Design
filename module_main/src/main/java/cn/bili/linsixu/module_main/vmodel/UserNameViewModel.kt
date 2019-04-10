@@ -10,8 +10,6 @@ import cn.bili.linsixu.commen_base.utils.MyLog
 import cn.bili.linsixu.module_main.bean.ListNotifyEvent
 import cn.bili.linsixu.module_main.bean.UserName
 import cn.bili.linsixu.module_main.event.SingleLiveEvent
-import cn.bili.linsixu.module_main.vmodel.helper.ListDataNotifyHelper
-import java.util.*
 
 /**
  * Created by Magic

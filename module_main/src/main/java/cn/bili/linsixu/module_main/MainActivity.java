@@ -7,7 +7,9 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import java.util.ArrayList;
 
 import cn.bili.linsixu.commen_base.base.BaseActivity;
-import cn.bili.linsixu.module_main.databinding.ActivityRouterBinding;
+import cn.bili.linsixu.module_main.adapter.MainRecyclerAdapter;
+import cn.bili.linsixu.module_main.bean.RouterBean;
+import cn.bili.linsixu.module_main.databinding.ActivityMagicMainBinding;
 
 /**
  * Created by Magic

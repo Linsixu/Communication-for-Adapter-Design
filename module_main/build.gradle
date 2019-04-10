@@ -49,8 +49,10 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    api rootProject.ext.support["appcompat"]
+    implementation rootProject.ext.support["appcompat"]
+    implementation rootProject.ext.support["recyclerview"]
     testImplementation 'junit:junit:4.12'
+    //noinspection GradleCompatible
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     //Arouter路由，因为common模块引用了arouter_api，所以该模块不需要再引用

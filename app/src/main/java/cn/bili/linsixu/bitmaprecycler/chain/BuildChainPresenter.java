@@ -5,9 +5,10 @@ import java.util.ArrayList;
 import cn.bili.linsixu.bitmaprecycler.chain.adapter.ControllerAdapter;
 import cn.bili.linsixu.bitmaprecycler.chain.adapter.DemandAdapter;
 import cn.bili.linsixu.bitmaprecycler.chain.adapter.RecyclerAdapter;
-import cn.bili.linsixu.bitmaprecycler.chain.bean.Feature;
-import cn.bili.linsixu.bitmaprecycler.chain.event.MyEvent;
 import cn.bili.linsixu.bitmaprecycler.chain.utils.MyEventFeature;
+import cn.bili.linsixu.commen_base.eventbus.AbsPlayerAdapter;
+import cn.bili.linsixu.commen_base.eventbus.PlayerAdapterFactory;
+import cn.bili.linsixu.commen_base.eventbus.bean.Feature;
 
 /**
  * Created by Magic

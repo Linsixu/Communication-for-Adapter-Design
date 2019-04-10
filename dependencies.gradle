@@ -52,6 +52,8 @@ ext {
             'arouter-register'      : "com.alibaba:arouter-register:${versions["arouterRegisterVersion"]}",
             'butterknife'           : "com.jakewharton:butterknife:$butterknifeVersion",
             'butterknife_compiler'  : "com.jakewharton:butterknife-compiler:$butterknifeVersion",
-
+            'fast_json'             : "com.alibaba:fastjson:1.1.70.android",
+            'glide'                 : "com.github.bumptech.glide:glide:4.0.0",
+            'glide_annotation'      : "com.github.bumptech.glide:compiler:4.0.0"
     ]
 }

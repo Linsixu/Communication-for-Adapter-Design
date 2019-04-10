@@ -36,6 +36,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation rootProject.ext.support["appcompat"]
+    implementation rootProject.ext.support["recyclerview"]
     implementation rootProject.ext.support["core"]
 
     api rootProject.ext.third["arouter_api"]
@@ -51,6 +52,8 @@ dependencies {
 ////    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 //    api 'com.alibaba:arouter-api:1.4.0'
 //    annotationProcessor rootProject.ext.third["arouter_compiler"]
+    implementation rootProject.ext.third["fast_json"]
+    implementation rootProject.ext.third["glide"]
 }
 kapt {
     generateStubs = true
