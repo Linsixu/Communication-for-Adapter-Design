@@ -2,6 +2,7 @@
     package="cn.bili.linsixu.commen_base">
     <application>
         <activity android:name=".activity.FeedActivity"/>
+        <activity android:name=".activity.ShareElementActivity"/>
     </application>
 
 </manifest>

@@ -25,6 +25,8 @@ import cn.bili.linsixu.commen_base.utils.PolicyEvent;
  */
 @Route(path = "/common/FeedActivity")
 public class FeedActivity extends BaseActivity<ActivityCommentBinding> {
+    public static final String LAYOUR_FLAG = "layout";
+    public static final String TXT_FLAG = "txt";
     final private int mCardCreateType = 0;
 
     private PegasusCardManager mCardManager;
@@ -57,6 +59,12 @@ public class FeedActivity extends BaseActivity<ActivityCommentBinding> {
 
         mCardManager.addCard(mCardManager.createCard(t));
         mCardManager.addCard(mCardManager.createCard(s));
+        mCardManager.addCard(mCardManager.createCard(t));
+        mCardManager.addCard(mCardManager.createCard(t));
+        mCardManager.addCard(mCardManager.createCard(t));
+        mCardManager.addCard(mCardManager.createCard(t));
+        mCardManager.addCard(mCardManager.createCard(t));
+        mCardManager.addCard(mCardManager.createCard(t));
 
         binding.recycler.setLayoutManager(new LinearLayoutManager(this));
 
