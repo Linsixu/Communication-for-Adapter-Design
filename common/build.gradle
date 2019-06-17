@@ -15,7 +15,7 @@ android {
         kapt {
             arguments {
                 arg("moduleName", project.getName())
-                arg("AROUTER_MODULE_NAME",project.getName())
+                arg("AROUTER_MODULE_NAME", project.getName())
             }
             generateStubs = true
         }
@@ -31,6 +31,7 @@ android {
         enabled true
     }
 
+    sourceSets { main { assets.srcDirs = ['src/main/assets', 'src/main/assets/'] } }
 }
 
 dependencies {
@@ -58,5 +59,3 @@ dependencies {
 kapt {
     generateStubs = true
 }
-
-
