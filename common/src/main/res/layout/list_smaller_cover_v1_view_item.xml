@@ -1,27 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@android:color/holo_blue_dark">
+    android:background="@android:color/holo_blue_dark"
+    android:orientation="vertical">
+
     <TextView
         android:id="@+id/txt_book"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
     <TextView
         android:id="@+id/txt_desc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
     <TextView
         android:id="@+id/txt_userName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
     <TextView
         android:id="@+id/txt_number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
     <TextView
         android:id="@+id/txt_address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
+    <!--<cn.bili.linsixu.commen_base.view.ExpandLinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content">-->
+    <!--</cn.bili.linsixu.commen_base.view.ExpandLinearLayout>-->
+    <cn.bili.linsixu.commen_base.view.ExpandView
+        android:id="@+id/text_expand"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        app:isNeedEllipsis="true"
+        app:maxRows="2"
+        app:textColor="@color/white"
+        app:textSize="12sp"
+        app:isNeedShowIcon="true"
+        app:textInnerPadding="8dp"
+        app:iconDrawable="@drawable/more_msg"/>
 </LinearLayout>

@@ -23,7 +23,7 @@
 
     <!-- changeBounds is used for the TextViews which are shared -->
     <!--<changeBounds android:duration="3000"/>-->
-    <fade android:fadingMode="fade_in_out" android:duration="3000"/>
+    <fade android:fadingMode="fade_in" android:duration="3000"/>
     <!--<changeScroll android:duration="3000"/>-->
     <changeBounds android:duration="3000"/>
 

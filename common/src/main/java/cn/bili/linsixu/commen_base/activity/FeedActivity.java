@@ -1,6 +1,10 @@
 package cn.bili.linsixu.commen_base.activity;
 
+import android.annotation.TargetApi;
+import android.os.Build;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.transition.Transition;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.fastjson.JSON;
@@ -17,12 +21,14 @@ import cn.bili.linsixu.commen_base.feed.base.BasicCardCreatorV2;
 import cn.bili.linsixu.commen_base.feed.base.PegasusCardManager;
 import cn.bili.linsixu.commen_base.feed.item.LargeCoverV1Item;
 import cn.bili.linsixu.commen_base.feed.item.SmallerCoverItem;
+import cn.bili.linsixu.commen_base.utils.MyLog;
 import cn.bili.linsixu.commen_base.utils.PolicyEvent;
 
 /**
  * Created by Magic
  * on 2018/11/22.
  */
+@android.support.annotation.RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 @Route(path = "/common/FeedActivity")
 public class FeedActivity extends BaseActivity<ActivityCommentBinding> {
     public static final String LAYOUR_FLAG = "layout";
@@ -71,10 +77,22 @@ public class FeedActivity extends BaseActivity<ActivityCommentBinding> {
         IndexAdapter adapter = new IndexAdapter(mCardManager);
 
         binding.recycler.setAdapter(adapter);
+
     }
 
     @Override
     protected void initClick() {
 
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        addTransitionListener();
+    }
+
+    private void addTransitionListener() {
+        final Transition transition = getWindow().getSharedElementExitTransition();
+        final Transition transition1 = getWindow().getSharedElementEnterTransition();
     }
 }

@@ -7,11 +7,13 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Canvas
 import android.graphics.Paint
+import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
 import cn.bili.linsixu.commen_base.R
 import java.lang.StringBuilder
+import kotlin.math.max
 
 /**
  * Created by Magic
@@ -27,7 +29,10 @@ class ExpandView : View {
     private var textWidth = 0f
     private var spaceWidth = 0
 
-    private val mDistance = 1f.toPx()
+    private val mDistance = 1f.toPx() //icon与字体之间的偏差
+    private var mIconX = -1f
+    private var mIconY = -1f
+    private var mIconListener: OnIconClickListener? = null
 
     constructor(context: Context?) : super(context) {
         init(context, null)
@@ -148,7 +153,7 @@ class ExpandView : View {
                     var iconReplaceNumber = 0
                     if (mParams.isNeedShowIcon) {
                         mParams.mIcon?.let { d ->
-                            d.setBounds(0, 0, oneTextWidth.toInt(), caculateSingleTextHeight().toInt())
+                            d.setBounds(0, 0, oneTextWidth.toInt(), caculateSingleTextHeight().toInt() - mDistance * 2)
                             iconReplaceNumber = 1 + (spaceWidth / oneTextWidth).toInt() + if (spaceWidth % oneTextWidth == 0f) 0 else 1
                         }
                     }
@@ -158,7 +163,9 @@ class ExpandView : View {
                     stringBuilder.append(ELLIPSIS_STRING)
                     onDrawText(canvas!!, y, stringBuilder.toString())
                     if (mParams.isNeedShowIcon && mParams.mIcon != null) {
-                        canvas.translate(paddingLeft + initWidth + (deleteNumber - 1) * oneTextWidth, y + font.ascent)
+                        mIconY = y + font.ascent + mDistance
+                        mIconX = paddingLeft + initWidth + (deleteNumber - 1) * oneTextWidth
+                        canvas.translate(mIconX, mIconY)
                         mParams.mIcon!!.draw(canvas)
                     }
                 } else {
@@ -176,7 +183,9 @@ class ExpandView : View {
                         val initWidth = stringBuilder.toString().length * oneTextWidth
                         onDrawText(canvas!!, y, stringBuilder.toString())
                         if (mParams.isNeedShowIcon && mParams.mIcon != null) {
-                            canvas.translate(paddingLeft + initWidth, y + font.ascent + mDistance)
+                            mIconY = y + font.ascent + mDistance
+                            mIconX = paddingLeft + initWidth
+                            canvas.translate(mIconX, mIconY)
                             mParams.mIcon!!.draw(canvas)
                         }
                     } else {
@@ -208,13 +217,47 @@ class ExpandView : View {
         canvas.drawText(text, 0, text.length, paddingLeft.toFloat(), y, mPaint)
     }
 
+    //与测量参数相关的变量改变后，都需要执行requestLayout
     fun setText(content: String) {
         mParams.mTextContent.mTextInitContent = content
         mParams.mTextContent.mTextShowContent = mParams.mTextContent.mTextInitContent
         requestLayout()
     }
 
-    override fun onTouchEvent(event: MotionEvent?): Boolean {
+    fun setEllipsis(isNeedEllipsis: Boolean) {
+        mParams.isNeedEllipsis = isNeedEllipsis
+        invalidate()
+    }
+
+    fun setTextInnerPadding(padding: Int) {
+        mParams.mTextInnerPadding = padding
+        requestLayout()
+    }
+
+    fun setMaxRows(maxRows: Int) {
+        mParams.mMaxRows = maxRows
+        requestLayout()
+    }
+
+    fun setIconDrawable(drawable: Drawable) {
+        mParams.mIcon = drawable
+    }
+
+    fun setOnIconClickListener(listener: OnIconClickListener) {
+        mIconListener = listener
+    }
+
+    override fun onTouchEvent(event: MotionEvent): Boolean {
+        val x = event.x
+        val y = event.y
+        when (event.action) {
+            MotionEvent.ACTION_DOWN -> {
+                if (x > mIconX && x < mIconX + oneTextWidth
+                    && y > mIconY && y < mIconY + caculateSingleTextHeight()) {
+                    mIconListener?.onClick()
+                }
+            }
+        }
         return super.onTouchEvent(event)
     }
 
@@ -224,5 +267,10 @@ class ExpandView : View {
 
         val SPACE_NORMAL = charArrayOf('\u0020')//this is " "
         val SPACE_STRING = String(SPACE_NORMAL)
+    }
+
+    //icon的点击事件
+    interface OnIconClickListener {
+        fun onClick()
     }
 }
