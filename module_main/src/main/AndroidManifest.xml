@@ -11,5 +11,6 @@
         </activity>
         <activity android:name=".ui.LifecyclerActivity"/>
         <activity android:name=".ui.MvActivity"/>
+        <activity android:name=".ui.LoadDataAcitivity"/>
     </application>
 </manifest>

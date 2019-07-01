@@ -67,6 +67,7 @@ dependencies {
     kapt rootProject.ext.support["room_compile"]
 
     kapt "com.android.databinding:compiler:3.1.0"
+    implementation rootProject.ext.third["fast_json"]
 }
 
 kapt {
