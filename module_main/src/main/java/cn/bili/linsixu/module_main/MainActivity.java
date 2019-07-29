@@ -31,6 +31,7 @@ public class MainActivity extends BaseActivity<ActivityMagicMainBinding> {
         list.add(new RouterBean("liveData","/module_main/LifecyclerActivity"));
         list.add(new RouterBean("Feed","/common/FeedActivity"));
         list.add(new RouterBean("自定义LiveData","/module_main/LoadDataAcitivity"));
+        list.add(new RouterBean("ViewPager翻页动画","/common/PagerActivity"));
 
         adapter = new MainRecyclerAdapter(list);
 

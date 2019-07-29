@@ -15,7 +15,8 @@
         <attr name="expandBackground" format="reference" />
         <attr name="isNeedEllipsis" format="boolean" />
         <attr name="isNeedShowIcon" format="boolean" />
-        <attr name="maxRows" format="integer"/>
-        <attr name="textInnerPadding" format="dimension"/>
+        <attr name="maxRows" format="integer" />
+        <attr name="textInnerPadding" format="dimension" />
+        <attr name="isNeedSpace" format="boolean" />
     </declare-styleable>
 </resources>

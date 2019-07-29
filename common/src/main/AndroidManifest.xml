@@ -3,6 +3,7 @@
     <application>
         <activity android:name=".activity.FeedActivity"/>
         <activity android:name=".activity.ShareElementActivity"/>
+        <activity android:name=".viewpager.ui.PagerActivity"/>
     </application>
 
 </manifest>

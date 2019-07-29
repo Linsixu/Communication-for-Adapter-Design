@@ -41,11 +41,15 @@
         android:layout_height="wrap_content"
         android:paddingLeft="4dp"
         android:paddingRight="4dp"
-        app:isNeedEllipsis="true"
-        app:maxRows="2"
+        app:maxRows="3"
         app:textColor="@color/white"
         app:textSize="12sp"
         app:isNeedShowIcon="true"
+        app:isNeedSpace="true"
         app:textInnerPadding="8dp"
         app:iconDrawable="@drawable/more_msg"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="我和你我和你我和你我和你我和你我和你我和你我和你我和你我和你我和你我和你我和你我和你我和你我和你我和你我和你我和你"/>
 </LinearLayout>
