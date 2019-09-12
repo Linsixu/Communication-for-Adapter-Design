@@ -19,4 +19,24 @@
         <attr name="textInnerPadding" format="dimension" />
         <attr name="isNeedSpace" format="boolean" />
     </declare-styleable>
+
+    <declare-styleable name="GoodLikeTextView">
+        <attr name="likeIconDrawable" format="reference" />
+        <attr name="nameTextColor" format="color" />
+        <attr name="nameTextNightColor" format="color" />
+        <attr name="nameTextSize" format="dimension" />
+        <attr name="contentTextColor" format="color" />
+        <attr name="contentTextNightColor" format="color" />
+        <attr name="contentTextSize" format="dimension" />
+        <attr name="iconAndTextPadding" format="dimension" />
+        <attr name="maxLines" format="integer" />
+        <attr name="isNeedLikeEllipsis" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="LikeTextView">
+        <attr name="nameTextColor1" format="color" />
+        <attr name="nameTextNightColor1" format="color" />
+        <attr name="contentTextColor1" format="color" />
+        <attr name="contentTextNightColor1" format="color" />
+    </declare-styleable>
 </resources>

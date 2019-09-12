@@ -4,6 +4,8 @@
         <activity android:name=".activity.FeedActivity"/>
         <activity android:name=".activity.ShareElementActivity"/>
         <activity android:name=".viewpager.ui.PagerActivity"/>
+        <activity android:name=".onshow.ShowReportActivity"/>
+        <activity android:name=".activity.AnimationActivity"/>
     </application>
 
 </manifest>

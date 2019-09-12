@@ -41,15 +41,42 @@
         android:layout_height="wrap_content"
         android:paddingLeft="4dp"
         android:paddingRight="4dp"
-        app:maxRows="3"
-        app:textColor="@color/white"
-        app:textSize="12sp"
+        app:iconDrawable="@drawable/more_msg"
         app:isNeedShowIcon="true"
         app:isNeedSpace="true"
+        app:maxRows="3"
+        app:textColor="@color/white"
         app:textInnerPadding="8dp"
-        app:iconDrawable="@drawable/more_msg"/>
+        app:textSize="12sp" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="我和你我和你我和你我和你我和你我和你我和你我和你我和你我和你我和你我和你我和你我和你我和你我和你我和你我和你我和你"/>
+        android:maxLines="1"
+        android:text="我和你我和你我和你我和你我和你我和你我和你我和你我和你我和你我和你我和你我和你我和你我和你我和你我和你我和你我和你" />
+
+    <cn.bili.linsixu.commen_base.view.span.LikeTextView
+        android:id="@+id/testView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:gravity="center_vertical"
+        android:includeFontPadding="false"
+        android:textSize="13sp"
+        android:drawableLeft="@drawable/icon_good"
+        android:drawablePadding="10dp"
+        android:paddingLeft="9dp" />
+
+    <cn.bili.linsixu.commen_base.view.span.LikeTextView2
+        android:id="@+id/testView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="13sp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:drawableLeft="@drawable/icon_good"
+        android:paddingLeft="9dp"
+        android:drawablePadding="10dp"
+        android:includeFontPadding="false"/>
 </LinearLayout>

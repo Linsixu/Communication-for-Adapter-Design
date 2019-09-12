@@ -5,6 +5,7 @@ import android.os.Build;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.transition.Transition;
+import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.fastjson.JSON;
@@ -73,6 +74,18 @@ public class FeedActivity extends BaseActivity<ActivityCommentBinding> {
         mCardManager.addCard(mCardManager.createCard(t));
 
         binding.recycler.setLayoutManager(new LinearLayoutManager(this));
+
+        binding.recycler.addOnChildAttachStateChangeListener(new RecyclerView.OnChildAttachStateChangeListener() {
+            @Override
+            public void onChildViewAttachedToWindow(View view) {
+                 MyLog.i("magic", "view=" + view);
+            }
+
+            @Override
+            public void onChildViewDetachedFromWindow(View view) {
+                MyLog.i("magic", "DetachView=" + view);
+            }
+        });
 
         IndexAdapter adapter = new IndexAdapter(mCardManager);
 

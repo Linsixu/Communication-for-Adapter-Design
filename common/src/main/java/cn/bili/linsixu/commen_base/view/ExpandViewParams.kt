@@ -17,6 +17,7 @@ data class ExpandViewParams(
     var mMaxRows: Int = -1,
     var mBackground: Drawable? = null,
     var mTextInnerPadding: Int = 0,
+    var isNeedSpaceBetweenIcon: Boolean = false,
 
     var mTextContent: ExPandTextContent = ExPandTextContent()
 )
